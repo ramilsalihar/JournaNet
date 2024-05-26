@@ -24,20 +24,6 @@ class AppTheme {
       colors: _lightColors,
       dimens: dimens,
     ),
-    checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateColor.resolveWith((Set<MaterialState> states) {
-        if (states.contains(MaterialState.selected)) {
-          return _lightColors.primaryColor;
-        }
-        return _lightColors.white;
-      }),
-      overlayColor: MaterialStateColor.resolveWith((Set<MaterialState> states) {
-        if (states.contains(MaterialState.hovered)) {
-          return _lightColors.white;
-        }
-        return _lightColors.primaryColor;
-      }),
-    ),
     appBarTheme: AppBarTheme(
       backgroundColor: _lightColors.white,
     ),
