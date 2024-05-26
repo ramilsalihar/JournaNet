@@ -15,7 +15,7 @@ class AppTheme {
     colorScheme: ColorScheme.light(
       primary: _lightColors.primaryColor,
       secondary: _lightColors.secondaryColor,
-      background: _lightColors.secondaryColor,
+      background: _lightColors.black,
     ),
     fontFamily: GoogleFonts.openSans(
       fontWeight: FontWeight.w600,
