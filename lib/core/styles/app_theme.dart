@@ -28,7 +28,8 @@ class AppTheme {
       backgroundColor: _lightColors.white,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: _lightColors.white,
+      backgroundColor: _lightColors.navBarColor,
+      unselectedItemColor: Colors.grey,
     ),
   );
 

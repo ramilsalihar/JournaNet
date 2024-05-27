@@ -16,4 +16,10 @@ class AppColorsLight extends AppColors {
 
   @override
   Color get black => const Color(0xff000000);
+
+  @override
+  Color get cardColor => const Color(0xff182135);
+
+  @override
+  Color get navBarColor => const Color(0xff151B28);
 }

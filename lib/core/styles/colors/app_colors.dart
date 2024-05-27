@@ -16,6 +16,10 @@ abstract class AppColors {
 
   Color get black;
 
+  Color get cardColor;
+
+  Color get navBarColor;
+
   static AppColors of(BuildContext context) {
     switch (Theme.of(context).brightness) {
       case Brightness.light:
