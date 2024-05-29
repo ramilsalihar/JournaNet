@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swiftui/presentation/pages/home/preview_page.dart';
+import 'package:swiftui/presentation/pages/home/articles/article_preview_page.dart';
 import 'package:swiftui/presentation/widgets/buttons/app_text_button.dart';
 import 'package:swiftui/presentation/widgets/forms/app_text_form_field.dart';
 import 'package:swiftui/presentation/widgets/forms/selectable_list.dart';
@@ -31,7 +31,7 @@ class _NewArticlePageState extends State<NewArticlePage> {
   void navigateToPreview() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => PreviewPage(
+        builder: (context) => ArticlePreviewPage(
           headline: headlineController.text,
           status: statusController.text,
           publisher: publisherController.text,

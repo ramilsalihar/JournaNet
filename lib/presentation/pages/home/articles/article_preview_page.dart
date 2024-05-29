@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:swiftui/presentation/pages/home/home_page.dart';
 import 'package:swiftui/presentation/widgets/text_label.dart';
 
-class PreviewPage extends StatelessWidget {
+class ArticlePreviewPage extends StatelessWidget {
   final String headline;
   final String status;
   final String publisher;
   final String article;
   final Set<String> selectedLabels;
 
-  const PreviewPage({
+  const ArticlePreviewPage({
     super.key,
     required this.headline,
     required this.status,

@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:swiftui/presentation/widgets/cards/article_card.dart';
+import 'package:swiftui/presentation/pages/home/articles/article_preview_page.dart';
+import 'package:swiftui/presentation/widgets/cards/app_card.dart';
+
+final article = '''
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  ''';
 
 class ArticleContent extends StatelessWidget {
   const ArticleContent({super.key});
@@ -71,7 +79,24 @@ class ArticleContent extends StatelessWidget {
   Widget _buildArticleList() {
     return Expanded(
       child: ListView.builder(itemBuilder: (context, index) {
-        return const ArticleCard();
+        return AppCard(
+          title: 'How Falcons stay on the top after 15 years',
+          label: 'basketball',
+          details: '',
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => ArticlePreviewPage(
+                  headline: 'How Falcons stay on the top after 15 years',
+                  status: 'Writing',
+                  publisher: 'Post in Facebook',
+                  article: article,
+                  selectedLabels: {'basketball'},
+                ),
+              ),
+            );
+          },
+        );
       }),
     );
   }

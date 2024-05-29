@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:swiftui/presentation/pages/home/article_content.dart';
+import 'package:swiftui/presentation/pages/home/articles/article_content.dart';
+import 'package:swiftui/presentation/pages/home/events/event_content.dart';
 import 'package:swiftui/presentation/widgets/layout/app_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
         ),
         body: PageView(
@@ -37,9 +39,7 @@ class _HomePageState extends State<HomePage> {
           },
           children: const [
             ArticleContent(),
-            Center(
-              child: Text('Home'),
-            ),
+            EventContent(),
             Center(
               child: Text('Medication'),
             ),
