@@ -5,12 +5,13 @@ class AppTextFormField extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.controller,
+    this.keyboardType,
     // required this.onChanged,
   });
 
   final String hintText;
   final TextEditingController controller;
-
+  final TextInputType? keyboardType;
   // final void Function(String) onChanged;
 
   @override
@@ -41,7 +42,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         ),
         controller: widget.controller,
         onChanged: (value) {},
-        keyboardType: TextInputType.text,
+        keyboardType: widget.keyboardType ?? TextInputType.text,
         maxLines: null,
       ),
     );
