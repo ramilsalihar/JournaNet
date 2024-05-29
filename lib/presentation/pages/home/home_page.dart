@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swiftui/presentation/pages/home/article_content.dart';
 import 'package:swiftui/presentation/widgets/layout/app_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,58 +22,54 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.logout,
-              color: Colors.white,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          children: const [
+            ArticleContent(),
+            Center(
+              child: Text('Home'),
             ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
+            Center(
+              child: Text('Medication'),
+            ),
+            Center(
+              child: Text('Medication'),
+            ),
+            Center(
+              child: Text('Medication'),
+            ),
+          ],
+        ),
+        bottomNavigationBar: AppBottomBar(
+          selectedIndex: selectedIndex,
+          onItemTapped: (int index) {
+            _pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          },
+        ),
+        floatingActionButton: SizedBox(
+          height: 50,
+          width: 50,
+          child: IconButton(
+            icon: Image.asset('assets/icons/add.png'),
+            onPressed: () {},
           ),
-        ],
-      ),
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        children: const [
-          Center(
-            child: Text('Calendar'),
-          ),
-          Center(
-            child: Text('Home'),
-          ),
-          Center(
-            child: Text('Medication'),
-          ),
-          Center(
-            child: Text('Medication'),
-          ),
-          Center(
-            child: Text('Medication'),
-          ),
-        ],
-      ),
-      bottomNavigationBar: AppBottomBar(
-        selectedIndex: selectedIndex,
-        onItemTapped: (int index) {
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
-        },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       ),
     );
   }

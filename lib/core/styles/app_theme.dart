@@ -12,6 +12,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: _lightColors.primaryColor,
+    cardColor: _lightColors.cardColor,
     colorScheme: ColorScheme.light(
       primary: _lightColors.primaryColor,
       secondary: _lightColors.secondaryColor,
