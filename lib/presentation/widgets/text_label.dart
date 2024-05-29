@@ -17,9 +17,8 @@ class TextLabel extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(label),
       child: Padding(
-        padding: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.only(right: 5),
         child: SizedBox(
-          height: 40,
           child: Container(
             padding: const EdgeInsets.only(
               top: 5,

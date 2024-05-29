@@ -1,67 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:swiftui/presentation/widgets/text_label.dart';
 
-class SelectableLabelList extends StatefulWidget {
-  const SelectableLabelList({super.key});
+class SelectableLabelList extends StatelessWidget {
+  final List<String> labels;
+  final Set<String> selectedLabels;
+  final Function(String) onLabelSelected;
 
-  @override
-  State<SelectableLabelList> createState() => _SelectableLabelListState();
-}
-
-class _SelectableLabelListState extends State<SelectableLabelList> {
-  final Set<String> selectedLabels = {};
-
-  void onLabelSelected(String label) {
-    setState(() {
-      if (selectedLabels.contains(label)) {
-        selectedLabels.remove(label);
-      } else {
-        selectedLabels.add(label);
-      }
-    });
-  }
+  const SelectableLabelList({
+    super.key,
+    required this.labels,
+    required this.selectedLabels,
+    required this.onLabelSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       scrollDirection: Axis.horizontal,
-      children: [
-        TextLabel(
-          label: 'basketball',
-          isSelected: selectedLabels.contains('basketball'),
-          onTap: onLabelSelected,
-        ),
-        TextLabel(
-          label: 'football',
-          isSelected: selectedLabels.contains('football'),
-          onTap: onLabelSelected,
-        ),
-        TextLabel(
-          label: 'volleyball',
-          isSelected: selectedLabels.contains('volleyball'),
-          onTap: onLabelSelected,
-        ),
-        TextLabel(
-          label: 'hockey',
-          isSelected: selectedLabels.contains('hockey'),
-          onTap: onLabelSelected,
-        ),
-        TextLabel(
-          label: 'box',
-          isSelected: selectedLabels.contains('box'),
-          onTap: onLabelSelected,
-        ),
-        TextLabel(
-          label: 'golf',
-          isSelected: selectedLabels.contains('golf'),
-          onTap: onLabelSelected,
-        ),
-        TextLabel(
-          label: 'others',
-          isSelected: selectedLabels.contains('others'),
-          onTap: onLabelSelected,
-        ),
-      ],
+      children: labels.map((label) {
+        final isSelected = selectedLabels.contains(label);
+        return GestureDetector(
+          onTap: () => onLabelSelected(label),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: SizedBox(
+              height: 40,
+              child: TextLabel(
+                label: label,
+                isSelected: isSelected,
+                onTap: onLabelSelected,
+              ),
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 }
