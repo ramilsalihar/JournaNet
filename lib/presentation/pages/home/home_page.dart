@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:swiftui/presentation/pages/home/articles/article_content.dart';
 import 'package:swiftui/presentation/pages/home/articles/new_article_page.dart';
+import 'package:swiftui/presentation/pages/home/budget/add_budget_page.dart';
+import 'package:swiftui/presentation/pages/home/budget/budget_content.dart';
 import 'package:swiftui/presentation/pages/home/events/event_content.dart';
 import 'package:swiftui/presentation/pages/home/events/new_event_page.dart';
 import 'package:swiftui/presentation/widgets/layout/app_bottom_bar.dart';
@@ -42,9 +44,7 @@ class _HomePageState extends State<HomePage> {
           children: const [
             ArticleContent(),
             EventContent(),
-            Center(
-              child: Text('Medication'),
-            ),
+            BudgetContent(),
             Center(
               child: Text('Medication'),
             ),
@@ -79,6 +79,12 @@ class _HomePageState extends State<HomePage> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const NewEventPage(),
+                  ),
+                );
+              } else if (selectedIndex == 2) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const AddBudgetPage(),
                   ),
                 );
               }
